@@ -14,3 +14,4 @@ git push origin master
 
 PROYECTO:
 Nombre de la base de datos: BDCupones
+Comando para activar setvidor artisan: php artisan serve
