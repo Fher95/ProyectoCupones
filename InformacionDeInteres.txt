@@ -1,17 +1,18 @@
 USO DE GITHUB:
 
-Lo que tienen que hacer primero que todo después de tener el bash de git funcionando, es clonar el repositorio con la dirección https://github.com/Fher95/Esparta donde ustedes quieran.
-Después, después de haber entrado en el directorio de ese repositorio, meten el comando: "git init ."
-Después de eso va el comando "git remote add origin https://github.com/Fher95/Esparta".
+Lo que tienen que hacer primero que todo despuï¿½s de tener el bash de git funcionando, es clonar el repositorio con la direcciï¿½n https://github.com/Fher95/Esparta donde ustedes quieran.
+Despuï¿½s, despuï¿½s de haber entrado en el directorio de ese repositorio, meten el comando: "git init ."
+Despuï¿½s de eso va el comando "git remote add origin https://github.com/Fher95/Esparta".
 Luego de que creen un archivo o lo modifiquen, tienen que usar el comando "git add nombreArchivoCreado" o "git add ." para todos los archivos que hayan.
-Después de eso tienen que escribir "git commit -m "comentarioCualquiera" para confirmar los cambios. Deben configurar el email y el nombre con la sintaxis que les dice ahi de "git config...".
-Finalmente después de todos los pasos anteriores escriben "
+Despuï¿½s de eso tienen que escribir "git commit -m "comentarioCualquiera" para confirmar los cambios. Deben configurar el email y el nombre con la sintaxis que les dice ahi de "git config...".
+Finalmente despuï¿½s de todos los pasos anteriores escriben "
 
 git push origin master
 
-" o simplemente "git push" y ya deberían verse los cambios en el repositorio remoto.
+" o simplemente "git push" y ya deberï¿½an verse los cambios en el repositorio remoto.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 PROYECTO:
 Nombre de la base de datos: BDCupones
-Comando para activar setvidor artisan: php artisan serve
+Comando para activar servidor artisan: php artisan serve
+Comando para ejecutar las migraciones (crear tablas y relaciones de la BD): php artisan migrate
