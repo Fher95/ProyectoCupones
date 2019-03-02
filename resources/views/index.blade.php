@@ -28,16 +28,7 @@
         </ul>
         <a href="/" class="navbar-brand d-flex  justify-content-center">Navbar 3</a>
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-           
-            <li class="nav-item active">
-                <a class="nav-link  " href="/">Iniciar Sesion</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link   " href="">Registrarse</a>
-            </li>
-             <li class="nav-item ">
-                <a href="cart.html" class="cart-nav"><img src="img/core-img/cart2.png" alt=""><a class="text-white">(0)</a></a>
-            </li>
+            @include('auth.menuUsuario')
         </ul>
     </div>
 </nav>
