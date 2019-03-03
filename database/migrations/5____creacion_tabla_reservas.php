@@ -23,7 +23,7 @@ class CreacionTablaReservas extends Migration
             
             $table->primary(['fechaReserva','idCupon','idUsuario']);
 
-            $table->foreign('idUsuario')->references('idUsuario')->on('usuarios');
+            $table->foreign('idUsuario')->references('id')->on('usuarios');
             $table->foreign('idCupon')->references('idCupon')->on('cupones');
             
         });

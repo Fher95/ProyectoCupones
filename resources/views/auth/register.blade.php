@@ -12,14 +12,14 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="nombreUsuario" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="nombreUsuario" type="text" class="form-control{{ $errors->has('nombreUsuario') ? ' is-invalid' : '' }}" name="nombreUsuario" value="{{ old('nombreUsuario') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('nombreUsuario'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('nombreUsuario') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -54,10 +54,24 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar Contraseña') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="telefonoUsuario" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="telefonoUsuario" type="text" class="form-control{{ $errors->has('telefonoUsuario') ? ' is-invalid' : '' }}" name="telefonoUsuario" value="{{ old('telefonoUsuario') }}" required autofocus>
+
+                                @if ($errors->has('telefonoUsuario'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('telefonoUsuario') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 

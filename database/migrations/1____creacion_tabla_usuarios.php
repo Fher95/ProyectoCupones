@@ -14,14 +14,16 @@ class CreacionTablaUsuarios extends Migration
     public function up()
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->increments('idUsuario');        //Primary Key
+            $table->increments('id');        //Primary Key
             $table->string('nombreUsuario');
-            $table->string('emailUsuario')->unique();
+            $table->string('email')->unique();
             $table->string('telefonoUsuario')->nullable();
             $table->string('password');
-            $table->boolean('rolAdministrador');
-            $table->boolean('rolCliente');
-            $table->boolean('rolPublicista');
+            $table->boolean('rolAdministrador')->default('0');
+            $table->boolean('rolCliente')->default('1');
+            $table->boolean('rolPublicista')->default('0');
+
+
         });
     }
 

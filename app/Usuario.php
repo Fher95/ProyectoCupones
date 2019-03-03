@@ -3,12 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\MustVerifyEmail;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class Usuario extends Model
+class Usuario extends Model implements
+    AuthenticatableContract,
+    AuthorizableContract,
+    CanResetPasswordContract
 {
+    use Authenticatable, Authorizable, CanResetPassword, MustVerifyEmail;
+
     protected $table = "usuarios";
 
-    protected $guarded = ['password'];
+    protected $fillable = ['nombreUsuario','email','telefonoUsuario', 'password'];
     public $timestamps = false;
 
     public function aliados()
@@ -24,5 +36,17 @@ class Usuario extends Model
     public function cuponesReserva()
     {
         return $this->belongsToMany('App\Usuario', 'Reserva', 'idUsuario','idCupon')->withPivot('fechaReserva', 'cantidad');
+    }
+
+    /**
+    * Overrides the method to ignore the remember token.
+    */
+    public function setAttribute($key, $value)
+    {
+        $isRememberTokenAttribute = $key == $this->getRememberTokenName();
+        if (!$isRememberTokenAttribute)
+        {
+        parent::setAttribute($key, $value);
+        }
     }
 }

@@ -21,7 +21,7 @@ class CreacionTablaAliados extends Migration
             $table->unsignedInteger('idUsuario');
             //$table->timestamps();
 
-            $table->foreign('idUsuario')->references('idUsuario')->on('usuarios');
+            $table->foreign('idUsuario')->references('id')->on('usuarios');
         });
     }
 

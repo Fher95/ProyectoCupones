@@ -21,7 +21,7 @@ class CreacionTablaCompras extends Migration
             //$table->timestamps();
 
             $table->primary(['fechaCompra','idUsuario','idCupon']);
-            $table->foreign('idUsuario')->references('idUsuario')->on('usuarios');
+            $table->foreign('idUsuario')->references('id')->on('usuarios');
             $table->foreign('idCupon')->references('idCupon')->on('cupones');
         });
     }

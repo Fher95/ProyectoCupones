@@ -25,7 +25,7 @@ class CreacionTablaCupones extends Migration
             $table->unsignedInteger('idAliado');
             //$table->timestamps();
 
-            $table->foreign('idUsuario')->references('idUsuario')->on('usuarios');
+            $table->foreign('idUsuario')->references('id')->on('usuarios');
             $table->foreign('idAliado')->references('idAliado')->on('aliados');
         });
     }
