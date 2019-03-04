@@ -1,6 +1,6 @@
 @if(Auth::check())
     <li class="nav-item active">
-        <a class="nav-link " href="">FUNCIONO HPTA!!</a>
+        <a class="nav-link " href="">NOMBRE_DE_USUARIO!!</a>
     </li>
     <li class="nav-item active">
         <a class="nav-link   " href="">Cerrar Sesion</a>
