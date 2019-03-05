@@ -7,7 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+<<<<<<< HEAD
+    <title>{{ config('app.name', 'Prueba') }}</title>
+=======
     <title>{{ config('app.name', 'Espartan cupon') }}</title>
+>>>>>>> fa77587f9f65d6e38438230a813880c6e8c36a3e
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,7 +28,11 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+<<<<<<< HEAD
+                    {{ config('app.name', 'Prueba') }}
+=======
                     {{ config('app.name', 'Espartan cupon') }}
+>>>>>>> fa77587f9f65d6e38438230a813880c6e8c36a3e
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
