@@ -28,4 +28,7 @@ class HomeController extends Controller
     public function principal(){
         return redirect('/');
     }
+    public function crearCupon(){
+        return view('crearCupon');
+    }
 }

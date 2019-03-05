@@ -14,11 +14,11 @@
                     @endif
 
                     <div class = "panel-heading">
-                        <h1>Bienvenido {{ auth()->user()->nombreUsuario }}</h1>                        
+                        <h1>¡Bienvenido <strong>{{ auth()->user()->nombreUsuario }}!</strong></h1>                        
                     </div>
                     <div class = "panel-body">
-                        <p>E-mail: {{auth()->user()->email}}</p>
-                        <p>Telefono: {{auth()->user()->telefonoUsuario}}</p>
+                        <p>E-mail: <strong>{{auth()->user()->email}}</strong></p>
+                        <p>Telefono: <strong>{{auth()->user()->telefonoUsuario}}</strong></p>
                     </div>
                     <div class = "panel-footer">
                         <form action="{{route('principal')}}">
@@ -28,6 +28,11 @@
                     
                 </div>
             </div>
+            @if(auth()->user()->rolAdministrador==1)
+                @include('menuAdicionalAdmin')
+            @elseif(auth()->user()->rolPublicista==1)
+                @include('menuAdicionalPublicista')
+            @endif
         </div>
     </div>
 </div>

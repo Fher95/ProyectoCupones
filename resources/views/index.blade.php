@@ -11,29 +11,7 @@
 </head>
 <body>
     
- <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-md bg-faded justify-content-center">
-    
-   
-    <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
-        <ul class="navbar-nav w-100 ">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Inicio</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="">Tienda</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="">Pago</a>
-            </li>
-        </ul>
-        <a href="/" class="navbar-brand d-flex  justify-content-center">Navbar 3</a>
-        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-            @include('auth.menuUsuario')
-        </ul>
-    </div>
-</nav>
-
-
+    @include('navbar')
 
     <!-- Search Wrapper Area Start -->
  
@@ -54,7 +32,7 @@
             </div>
     </div>
      
-     <p>salto</p>
+    <p>.</p>
        
         
         <!-- Product Catagories Area Start -->
