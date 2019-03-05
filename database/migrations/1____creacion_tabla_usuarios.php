@@ -23,7 +23,6 @@ class CreacionTablaUsuarios extends Migration
             $table->boolean('rolCliente')->default('1');
             $table->boolean('rolPublicista')->default('0');
 
-
         });
     }
 

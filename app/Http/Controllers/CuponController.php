@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cupon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Usuario;
 
 class CuponController extends Controller
 {
@@ -36,18 +37,27 @@ class CuponController extends Controller
      */
     public function store(Request $request)
     {
+        $usuario = auth()->user();
         $cupon = new Cupon();
         $cupon->nombreCupon = $request->input('nombreCupon');
-        $cupon->URLImagenCupon = $request->input('URLImagenCupon');
         $cupon->categoriaCupon = $request->input('categoriaCupon');
         $cupon->precioCupon = $request->input('precioCupon');
         $cupon->descuentoCupon = $request->input('descuentoCupon');
         $cupon->totalAutorizados = $request->input('totalAutorizados');
-        $cupon->idUsuario = $request->input('idUsuario');
-        $cupon->idAliado = $request->input('idAliado');
-        $cupon->save();
         
-        return 'Saved';
+        $request->validate([
+            'URLImagenCupon' => 'required|image',
+        ]);
+        $file = $request->file('URLImagenCupon');
+        $name = 'img/product-img/' . $usuario->id . time() . $file->getClientOriginalName();
+        $file->move(public_path() . '/img/product-img', $name);
+        $cupon->URLImagenCupon = $name;
+        $cupon->idUsuario = $usuario->id;
+        $cupon->idAliado = 1;
+
+        $cupon->save();
+
+        return redirect('/home')->with('status', 'Cupon Creado!');
     }
 
     /**

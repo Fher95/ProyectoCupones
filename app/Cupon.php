@@ -10,6 +10,7 @@ class Cupon extends Model
 
     protected $fillable = ['nombreCupon', 'URLImagenCupon', 'categoriaCupon', 'precioCupon', 'descuentoCupon',
                             'totalAutorizados', 'idUsuario', 'idAliado'];
+    public $timestamps = false;
 
     public function aliado()
     {

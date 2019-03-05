@@ -21,7 +21,7 @@
                         <p>Telefono: <strong>{{auth()->user()->telefonoUsuario}}</strong></p>
                     </div>
                     <div class = "panel-footer">
-                        <form action="{{route('principal')}}">
+                        <form action="{{route('index')}}">
                             <button class = "btn btn-danger btn-xs btn-block">Ir de compras</button>
                         </form>
                     </div>

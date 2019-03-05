@@ -16,10 +16,10 @@ class CreacionTablaCupones extends Migration
         Schema::create('cupones', function (Blueprint $table) {
             $table->increments('idCupon');
             $table->string('nombreCupon');
-            $table->text('URLImagenCupon');
+            $table->string('URLImagenCupon');
             $table->string('categoriaCupon');
             $table->float('precioCupon',11, 2);
-            $table->float('descuentoCupon',2,1);
+            $table->float('descuentoCupon',3,1);
             $table->integer('totalAutorizados');
             $table->unsignedInteger('idUsuario');
             $table->unsignedInteger('idAliado');
