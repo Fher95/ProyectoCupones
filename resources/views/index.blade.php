@@ -53,11 +53,12 @@
                             <p>Precio: {{$item->precioCupon}}</p>
                             <p>Descuento: {{$item->descuentoCupon}}</p>
                             <h4>{{$item->nombreCupon}}</h4>
+                            <button type="button" class="btn btn-dark">Comprar</button>
                         </div>
                     </a>
                 </div>
                 @endforeach();
-                
+
             </div>
        
         <!-- Product Catagories Area End -->
