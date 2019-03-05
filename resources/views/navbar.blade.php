@@ -23,7 +23,7 @@
                 <a class="nav-link" href="">Pago</a>
             </li>
         </ul>
-        <a href="/" class="navbar-brand d-flex  justify-content-center">Navbar 3</a>
+        <a href="/" class="navbar-brand d-flex  justify-content-center">PRODUCTOS</a>
         <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
             @include('auth.menuUsuario')
         </ul>
