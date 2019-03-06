@@ -28,6 +28,9 @@ class HomeController extends Controller
     public function home(){
         return view('home');
     }
+    public function tienda(){
+        return view('tienda');
+    }
     /*public function inicio(){
         $cupones = App\Cupon::all();
         return view('index',compact('cupones'));
