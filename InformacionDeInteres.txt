@@ -1,8 +1,8 @@
-USO DE GITHUB:
+﻿USO DE GITHUB:
 
-Lo que tienen que hacer primero que todo despu�s de tener el bash de git funcionando, es clonar el repositorio con la direcci�n https://github.com/Fher95/Esparta donde ustedes quieran.
+Lo que tienen que hacer primero que todo despu�s de tener el bash de git funcionando, es clonar el repositorio con la direcci�n https://github.com/Fher95/ProyectoCupones donde ustedes quieran.
 Despu�s, despu�s de haber entrado en el directorio de ese repositorio, meten el comando: "git init ."
-Despu�s de eso va el comando "git remote add origin https://github.com/Fher95/Esparta".
+Despu�s de eso va el comando "git remote add origin https://github.com/Fher95/ProyectoCupones".
 Luego de que creen un archivo o lo modifiquen, tienen que usar el comando "git add nombreArchivoCreado" o "git add ." para todos los archivos que hayan.
 Despu�s de eso tienen que escribir "git commit -m "comentarioCualquiera" para confirmar los cambios. Deben configurar el email y el nombre con la sintaxis que les dice ahi de "git config...".
 Finalmente despu�s de todos los pasos anteriores escriben "
