@@ -63,8 +63,9 @@
                         <!-- Hover Content -->
                         <div class="hover-content">
                             <div class="line"></div>
-                            <p>Precio: {{$item->precioCupon}}</p>
-                            <p>Descuento: {{$item->descuentoCupon}}</p>
+                            <p>Precio Original: ${{$item->precioCupon}}</p>
+                            <p>Descuento: {{$item->descuentoCupon}}%</p>
+                            <h3>Precio Final: ${{($item->precioCupon) * (1 - (($item->descuentoCupon)/100))}}</p>
                             <h4>{{$item->nombreCupon}}</h4>
                             <button type="button" class="btn btn-dark">Comprar</button>
                         </div>
