@@ -25,14 +25,11 @@ class HomeController extends Controller
     public function index(){
         return view('index');
     }
-    public function crearCupon(){
-        return view('crearCupon');
-    }
     public function home(){
         return view('home');
     }
-    public function inicio(){
+    /*public function inicio(){
         $cupones = App\Cupon::all();
         return view('index',compact('cupones'));
-    }
+    }*/
 }

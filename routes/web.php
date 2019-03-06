@@ -1,5 +1,7 @@
 <?php
 
+use App\Cupon;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,17 +13,14 @@
 |
 */
 Route::get('/', function () {
-    return redirect('/index') ;
+    $cupones = Cupon::all();
+    return view('index',['cupones'=>$cupones]);
 });
 
-Route::get('/welcome',function(){
-    return view('welcome');
-});
 Auth::routes();
 
-//Route::get('/principal', 'HomeController@principal')->name('principal');
-Route::get('/index', 'HomeController@inicio')->name('index');
+Route::get('/index', 'CuponController@show')->name('index');
 Route::get('/home', 'HomeController@home')->name('home');
-Route::get('/crearCupon', 'HomeController@crearCupon')->name('crearCupon');
+Route::get('/crearCupon', 'CuponController@create')->name('crearCupon');
 Route::post('/guardarCupon', 'CuponController@store')->name('storeCupon');
 

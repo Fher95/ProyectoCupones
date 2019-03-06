@@ -26,7 +26,7 @@ class CuponController extends Controller
      */
     public function create()
     {
-        //
+        return view('crearCupon');
     }
 
     /**
@@ -68,7 +68,8 @@ class CuponController extends Controller
      */
     public function show(Cupon $cupon)
     {
-        //
+        $cupones = Cupon::all();
+        return view('index',['cupones'=>$cupones]);
     }
 
     /**
