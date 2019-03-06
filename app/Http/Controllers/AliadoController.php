@@ -54,9 +54,15 @@ class AliadoController extends Controller
      */
     public function show(Aliado $aliado)
     {
-        //
+        $aliados = Aliado::all();
+        return view('crearCupon',['aliados'=>$aliados]);
     }
 
+    public function devolverAliados()
+    {
+        return Aliado::all();
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *

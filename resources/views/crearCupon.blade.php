@@ -1,7 +1,7 @@
 @include('navbar')
 <p>s</p>
-<p>s</p>
-<p>s</p>
+<p>.</p>
+
 @if (session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
@@ -27,12 +27,13 @@
       <option>Ropa</option>
     </select>
   </div>
+  
   <div class="form-group">
     <label for="exampleFormControlSelect2">Empresa Responsable</label>
     <select class="form-control" id="aliado" name="empresaAliada">
-      <option>LG</option>
-      <option>El Corral</option>
-      <option>Superdry</option>
+      @foreach($aliados as $empresa)
+        <option value='{{ $empresa->idAliado }}'>{{ $empresa->nombreAliado }}</option>
+      @endforeach();
     </select>
   </div>
   <div class="form-group">

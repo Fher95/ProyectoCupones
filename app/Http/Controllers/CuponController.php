@@ -26,7 +26,9 @@ class CuponController extends Controller
      */
     public function create()
     {
-        return view('crearCupon');
+        $aliado = new AliadoController();
+        $aliados = $aliado->devolverAliados();
+        return view('crearCupon',['aliados'=>$aliados]);
     }
 
     /**
@@ -53,7 +55,7 @@ class CuponController extends Controller
         $file->move(public_path() . '/img/product-img', $name);
         $cupon->URLImagenCupon = $name;
         $cupon->idUsuario = $usuario->id;
-        $cupon->idAliado = 1;
+        $cupon->idAliado = $request->input('empresaAliada');
 
         $cupon->save();
 

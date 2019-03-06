@@ -24,7 +24,7 @@
                 <a class="nav-link" href="{{ url('/') }}">Inicio</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{ url('tienda') }}">Tienda</a>
+                <a class="nav-link" href="">Tienda</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="">Pago</a>
