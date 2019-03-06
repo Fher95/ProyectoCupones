@@ -12,9 +12,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    
                     <div class = "panel-heading">
-                        <h1>¡Bienvenido <strong>{{ auth()->user()->nombreUsuario }}!</strong></h1>                        
+                        <h1>¡Bienvenido <strong>{{ auth()->user()->nombreUsuario }}!</strong></h1>
                     </div>
                     <div class = "panel-body">
                         <p>E-mail: <strong>{{auth()->user()->email}}</strong></p>
@@ -24,15 +24,21 @@
                         <form action="{{route('index')}}">
                             <button class = "btn btn-danger btn-xs btn-block">Ir de compras</button>
                         </form>
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button style="margin-top: 10px" class="btn btn-danger btn-xs btn-block">Cerrar Sesion</button>
+                        </form>
                     </div>
-                    
                 </div>
             </div>
+            
             @if(auth()->user()->rolAdministrador==1)
                 @include('menuAdicionalAdmin')
-            @elseif(auth()->user()->rolPublicista==1)
+                @elseif(auth()->user()->rolPublicista==1)
                 @include('menuAdicionalPublicista')
             @endif
+            
+
         </div>
     </div>
 </div>

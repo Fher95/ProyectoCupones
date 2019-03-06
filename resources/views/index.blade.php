@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
 <body>
     
     @include('navbar')
-
+    <!--
     @if (Route::has('login'))
         <div class="top-right links">
             @auth
@@ -25,7 +24,7 @@
             @endif
             @endauth
         </div>
-    @endif
+    @endif-->
 
     <!-- Search Wrapper Area Start -->
  

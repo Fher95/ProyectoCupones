@@ -224,9 +224,8 @@ img {
       right: 0; } }
 
 .navbar-toggler {
-  background-color: #fbb710;
-  border-radius: 0;
-  margin-bottom: 15px; }
+  background-color: #2E2E2E;
+  }
   .navbar-toggler i {
     font-size: 12px;
     color: #fff; }
