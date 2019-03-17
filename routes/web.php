@@ -23,5 +23,6 @@ Route::get('/index', 'CuponController@show')->name('index');
 Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/tienda', 'HomeController@tienda')->name('tienda');
 Route::get('/crearCupon', 'CuponController@create')->name('crearCupon');
+Route::get('/misCupones', 'comprasController@index')->name('cupones');
 Route::post('/guardarCupon', 'CuponController@store')->name('storeCupon');
 

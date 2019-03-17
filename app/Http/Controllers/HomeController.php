@@ -31,6 +31,13 @@ class HomeController extends Controller
     public function tienda(){
         return view('tienda');
     }
+    public function misCupones(){
+        return view('misCupones');
+    }
+    public function compras(){
+        $compras = App\Compra::all();
+        return view::make('compras')->with('compras', $compras);
+    }
     /*public function inicio(){
         $cupones = App\Cupon::all();
         return view('index',compact('cupones'));
