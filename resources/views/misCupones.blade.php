@@ -19,14 +19,13 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $compra->nombreCupon }}</h5>
                     <div class="card-text">
-                        <p>cantidad: {{ $compra->cantidad }}</p>
+                        <p>Cupones disponibles: {{ $compra->cantidad }}</p>
                         <p>Precio: {{ $compra->preciocupon }}</p>
                         <p>Descuento: {{ $compra->descuentocupon }}</p>
-                        <p>Id usuario: {{ $compra->idUsuario }}</p>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <form action="">
+                    <form action="{{ route('cuponRedimido', ['fechaCompra' => $compra->fechaCompra, 'idCupon' => $compra->idCupon, 'cantidad' => $compra->cantidad ] )}}">
                         <button class="btn btn-danger">Redimir</button>
                     </form>
                 </div>
