@@ -25,7 +25,20 @@ class comprasController extends Controller
     public function generarPagina($fechaCompra, $idCupon, $cantidad){
         $cadenaPorHash = sprintf( "%d%d%s", auth()->user()->email, $idCupon, $fechaCompra);        
         $hash = Hash::make($cadenaPorHash);
-        //Compra::destroy($cantidad, $idCupon, $fechaCompra);
+        $now = new \DateTime();
+        if($cantidad>1){
+            $data = ['cantidad' => $cantidad - 1];
+            Compra::where(['idCupon' => $idCupon, 'fechaCompra' => $fechaCompra, 'cantidad' => $cantidad])->update($data);
+        }
+        else{
+            $data = [$idCupon,$fechaCompra,$cantidad];
+            \DB::table('compras')
+            ->where(['idCupon' => $idCupon, 'fechaCompra' => $fechaCompra, 'cantidad' => $cantidad], '=', $data)
+            ->delete();
+        }
+        \DB::table('redimidos')->insert(
+            ['idUsuario' => auth()->user()->id, 'idCupon' => $idCupon, 'fechaCompra' => $fechaCompra, 'fechaRedimido' => $now, 'codigoARedimir' => $hash]
+        );
         return view('cuponRedimido')->with('hash', $hash);
     }
 
@@ -37,11 +50,6 @@ class comprasController extends Controller
      */
     public function destroy($cantidad, $idCupon, $fechaCompra)
     {
-        if($cantidad > 1){
-            dd("cantidad mayor a 1");
-        }
-        else{
-            dd("cantidad menor a 1");
-        }
+
     }
 }
