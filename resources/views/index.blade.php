@@ -9,58 +9,55 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+</br></br></br>
     
     @include('navbar')
-    <!--
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}">Register</a>
-            @endif
-            @endauth
-        </div>
-    @endif-->
-
-    <!-- Search Wrapper Area Start -->
- 
-    <!-- Search Wrapper Area End -->
-
-    <!-- ##### Main Content Wrapper Start ##### -->
-    <div class="main-content-wrapper d-flex clearfix">
-
-        <!-- Mobile Nav (max width 767px)-->
-        <div class="mobile-nav">
-            <!-- Navbar Brand -->
-            <div class="amado-navbar-brand">
-                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
-            </div>
-            <!-- Navbar Toggler -->
-            <div class="amado-navbar-toggler">
-                <span></span><span></span><span></span>
-            </div>
-    </div>
-     
-    <p>.</p>
+    <div class="container-fluid">
+   <div class="row">
+    
+        @foreach($cupones as $item)
        
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    
+    <div class="card  border-dark mb-12" >
         
-        <!-- Product Catagories Area Start -->
-        <div class="container-fluid">
-           <div class="row">
-            <div class="col col-xl-12">
-        
-            <div class="amado-pro-catagory clearfix">
+    <img class="imgCard" src="{{$item->URLImagenCupon}}" alt="Card image cap">
+    
+  <ul class="list-group   list-group-flush">
+    <li class="list-group-item">{{$item->nombreCupon}}</li>
+   
+  <div class="card-body">
+     <p class="card-text">Precio: ${{$item->precioCupon}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDescuento: {{$item->descuentoCupon}}%</p>
+     <h4 class="card-text">Precio Final: ${{($item->precioCupon) * (1 - (($item->descuentoCupon)/100))}}</h4>
+    <button type="button" class="btn btn-dark">Comprar</button>
+    
+  </div>
+</div>
+</br>
+ </div>
+ 
+  @endforeach()
+ </div>
 
-            @foreach($cupones as $item)
-                <!-- Single Catagory -->
+</div>
+       
+
+         <!--   @foreach($cupones as $item)
+                
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="{{$item->URLImagenCupon}}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+               
                 <div class="single-products-catagory clearfix">
                     <a href="shop.html">
                         <img src="{{$item->URLImagenCupon}}" alt="">
-                        <!-- Hover Content -->
+                         Hover Content 
+
                         <div class="hover-content">
                             <div class="line"></div>
                             <p>Precio Original: ${{$item->precioCupon}}</p>
@@ -71,15 +68,10 @@
                         </div>
                     </a>
                 </div>
-            @endforeach();
-
-            </div>
-       
-        <!-- Product Catagories Area End -->
-          </div>
-        </div>
-    </div>
-   
+                
+            @endforeach()
+-->
+     
 
 
 

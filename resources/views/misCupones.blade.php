@@ -7,9 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    @include('navbar')
-    <p>.</p>
-    <p>.</p>
+ @extends('layouts.app')
     
     <div class="card-columns">
         @foreach($compras as $compra)

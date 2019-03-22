@@ -25,7 +25,7 @@ Route::get('/tienda', 'HomeController@tienda')->name('tienda');
 Route::get('/crearCupon', 'CuponController@create')->name('crearCupon');
 Route::get('/misCupones', 'comprasController@index')->name('cupones');
 Route::post('/guardarCupon', 'CuponController@store')->name('storeCupon');
-
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/cuponRedimido/{fechaCompra}/{idCupon}/{cantidad}',[
     'as' => 'cuponRedimido',
     'uses' => 'comprasController@generarPagina',
