@@ -1,74 +1,97 @@
+<link rel="stylesheet" type="text/css" href="crear_cupon.css">
 @include('navbar')
-
-<p>s</p>
-<p>.</p>
+<br><br>
 
 @if (session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
     </div>
 @endif
-<div class="container-fluid">
-<div class="col px-md-5 p-5 border bg-light">
-<form action="/guardarCupon" method="POST" enctype="multipart/form-data"> 
-  @csrf
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Nombre</label>
-    <input name="nombreCupon" class="form-control" type="text" placeholder="Nombre">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlFile1">Cargar imagen</label>
-    <input name="URLImagenCupon" type="file" class="form-control-file">
-  </div>
-  
-  <div class="form-group">
-   <div class="row">
-    <label for="exampleFormControlSelect1">Categoria</label>
+<div class="container-fluid" align="center" style="background-color: #F6F19D;" style="margin:0 auto">
+  <div class="col px-md-5 p-5 border bg-light">
+  <form action="/guardarCupon" method="POST" enctype="multipart/form-data">
+    <br><br>
+    <h3 style="font-style: italic;">Registrar cupón</h3>
+    <br><br><br>
+    @csrf
+    <div class="form-group">
+      <label for="nombreCupon">Nombre del cupón</label>
+      <input type="text" id="nombreCupon" name="nombreCupon" class="form-control" style="max-width: 380; max-height: 30;">
     </div>
-    <div class="row">
-    <select class="form-control" id="categoria" name="categoriaCupon">
-      <option>Electrodomesticos</option>
-      <option>Comida</option>
-      <option>Ropa</option>
-    </select>
+    <br>  
+    <div class="form-group">
+      <div>
+      <label for="cargarImagenCupon">Seleccione una imagen del producto</label>
+      </div>
+      <input name="URLImagenCupon" type="file" class="file" readonly="true">
     </div>
-    
-  </div>
-  <div class="form-group">
-  <div class="row">
-    <label for="exampleFormControlSelect2">Empresa Responsable</label>
-  </div>
-  <div class="row">
-    <select class="form-control" id="aliado" name="empresaAliada">
-      @foreach($aliados as $empresa)
-        <option value='{{ $empresa->idAliado }}'>{{ $empresa->nombreAliado }}</option>
-      @endforeach();
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Precio</label>
-    <input name="precioCupon" class="form-control" type="text" placeholder="Ingrese un precio">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Porcentaje Descuento</label>
-    <input name="descuentoCupon" class="form-control" type="text" placeholder="Ingrese un porcentaje (un número de 1 a 100)">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Cupones autorizados</label>
-    <input name="totalAutorizados" class="form-control" type="text" placeholder="Ingrese el total de cupones autorizados">
-  </div>
-  <button type="submit" class="btn btn-primary">Crear cupon</button>
-</form>
+    <br>  
+    <div class="form-group">
+      <label for="categoriaCupon">Elige la categoría del cupón</label>
+      <select class="form-control" id="categoria" name="categoriaCupon"style="max-width: 380; max-height: 30;text-align-last: center">
+          <option>Electrodomesticos</option>
+          <option>Comida</option>
+          <option>Ropa</option>
+        </select>
     </div>
+    <br>
+    <div class="form-group">
+      <label for="empresaResponsable">Empresa aliada</label>
+      <select name="empresaAliada" id="aliado" class="form-control" style="max-width: 380; max-height: 30;text-align-last: center">
+        @foreach($aliados as $empresa)
+              <option value='{{ $empresa->idAliado }}'>{{ $empresa->nombreAliado }}</option>
+            @endforeach();
+      </select>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="precio">Precio del producto</label>
+      <input type="number" id="precioCupon" name="precioCupon" class="form-control" style="max-width: 380; max-height: 30; text-align-last: center;" min="1" value="1" onkeyup="precioFinal();">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="descuento">Descuento que se le otorga al cupón en porcentaje</label>
+      <input type="number" id="descuento" name="descuentoCupon" class="form-control"style="max-width: 380; max-height: 30; text-align-last: center;" min="0" max="100" value="0" onkeyup="precioFinal();">
+    </div>
+    <div class="form-group">
+      <label for="precioTotal">Precio final con el descuento</label>
+      <input type="number" id="definitivo" name="definitivo" class="form-control" value="1" style="max-width: 380; max-height: 30; text-align-last: center;" readonly="readonly">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="cuponesAutorizados">Digite el número de cupones autorizados a vender</label>
+      <input type="number" name="totalAutorizados" class="form-control" value="1" min="1" style="max-width: 380; max-height: 30; text-align-last: center;">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary" style="max-width: 380; max-height: 40;" onmouseenter="validarCampos()">Registrar cupon</button>
+    <br><br><br><br>
+  </form>
+</div>
 </div>
 
- <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
- <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
+<script type="text/javascript">
+  function precioFinal()
+  {
+    var precio=document.getElementById("precioCupon").value
+    var descuento=document.getElementById("descuento").value
+    var desTotal=descuento/100
+    desTotal=precio*desTotal
+    var total = precio - desTotal
+    console.log(total)
+    document.getElementById("definitivo").value = Math.round(total);
+  }
+  function validarCampos()
+  {
+    var nombreCupon=document.getElementById("nombreCupon").value
+    var aliado=document.getElementById("aliado").value
+    if(nombreCupon == '')
+    {
+      alert("Algunos campos estan vacío, por favor verificar antes de resgistrar el cupón");
+    return false;
+    }
+
+  }
+</script>
+
+<!-- Bootstrap js -->
     <script src="js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
-    <!-- Active js -->
-  <script src="js/active.js"></script>
