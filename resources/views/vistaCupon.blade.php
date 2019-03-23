@@ -21,29 +21,34 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        
+                        <h2 class="card-text">{{$cupon->nombreCupon}}</h2>
+                       
                     <div class="col-sm-6 col-md-4 col-lg-3">
     
-                        <div class="card  border-dark mb-12" >
-                            
-                        <img class="imgCard" src="{{$cupon->URLImagenCupon}}" alt="Card image cap">
+                                                    
+                        <img class="imgCard" src="../{{$cupon->URLImagenCupon}}" alt="Card image cap">
                         
                     <ul class="list-group   list-group-flush">
-                        <li class="list-group-item">{{$cupon->nombreCupon}}</li>
+                        <!--<li class="list-group-item">{{$cupon->nombreCupon}}</li>-->
                     
                     <div class="card-body">
                         <p class="card-text">Precio: ${{$cupon->precioCupon}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDescuento: {{$cupon->descuentoCupon}}%</p>
                         <h4 class="card-text">Precio Final: ${{($cupon->precioCupon) * (1 - (($cupon->descuentoCupon)/100))}}</h4>
+                        <h4 class="card-text">Disponibles: {{($cupon->totalAutorizados)}}</h4>
+                        <select class="form-control" id="cantidadCompra" name="cantidadCompra">                        
+                        @for($i=1 ; $i<=$cupon->totalAutorizados; $i++)
+                            <option value='{{ $i }}'>{{ $i }}</option>
+                        @endfor;                        
                         
-                            <button type="submit" class="btn btn-dark">Comprar</button>
+                        </select>
+                        <a href="{{ route('comprarCupones', ['idCupon' => $cupon->idCupon, 'cantidadCompra' => 1 ] )}}"  class = "btn btn-danger btn-xs btn-block">Comprar</a>
                         
                     </div>
-                    </div>
+                    
                    
                     </div>
                         
-
-                        
+                   
                     </div>
                 </div>
             </div>

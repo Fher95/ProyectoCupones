@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/index', 'CuponController@show')->name('index');
 Route::get('/home', 'HomeController@home')->name('home');
+
 Route::get('/tienda', 'HomeController@tienda')->name('tienda');
 Route::get('/crearCupon', 'CuponController@create')->name('crearCupon');
 Route::get('/misCupones', 'comprasController@index')->name('cupones');
@@ -30,10 +31,15 @@ Route::get('/cuponRedimido/{fechaCompra}/{idCupon}/{cantidad}',[
     'as' => 'cuponRedimido',
     'uses' => 'comprasController@generarPagina',
 ]);
-Route::get('/comprarCupones', 'comprasController@store')->name('comprarCupon');
-
-Route::get('/visCupon', function ($idCupon) {    
-    $cupon = Cupon::find($idCupon);
-    return view('vistaCupon',['cupon'=>$cupon]);
-})->name('visCupon');
+Route::get('/comprarCupones/{idCupon}/{cantidadCompra}', [
+    'as' => 'comprarCupones',
+    'uses' => 'comprasController@guardarCompra',
+]);
+Route::get('/visCupon/{idCupon}', [
+    'as' => 'visCupon',
+    'uses' => 'CuponController@showOne',
+]);
+Route::get('/cuponComprado',  function () {
+    return view('cuponComprado'->with('status', '¡Compra Realizada!'));
+});
 

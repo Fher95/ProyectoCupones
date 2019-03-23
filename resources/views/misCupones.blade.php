@@ -7,9 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+
  @extends('layouts.app')
     
+
     <div class="card-columns">
+
         @foreach($compras as $compra)
             
             <div class="card">

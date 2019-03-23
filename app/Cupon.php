@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cupon extends Model
 {
     protected $table = "cupones";
-
+    protected $primaryKey = 'idCupon';
     protected $fillable = ['nombreCupon', 'URLImagenCupon', 'categoriaCupon', 'precioCupon', 'descuentoCupon',
                             'totalAutorizados', 'idUsuario', 'idAliado'];
     

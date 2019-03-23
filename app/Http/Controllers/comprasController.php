@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Compra;
+use App\Cupon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Hash;
@@ -41,7 +42,21 @@ class comprasController extends Controller
         );
         return view('cuponRedimido')->with('hash', $hash);
     }
-    
+    public function guardarCompra($idCupon,$cantidadCompra){
+        $usuario = auth()->user();        
+        $compra = new Compra();        
+        $compra->idUsuario = $usuario->id;        
+        $compra->idCupon = $idCupon;
+        $now = new \DateTime();
+        $compra->fechaCompra = $now;
+        $compra->cantidad = $cantidadCompra;
+        $compra->save();
+        $cupon = Cupon::find($idCupon);
+        $numActual = $cupon->totalAutorizados;
+        $cupon->totalAutorizados = $numActual - $cantidadCompra;
+        $cupon->save();
+        return view('cuponComprado')->with('status', '¡Compra Realizada!');
+    }
     public function store(Request $request)
     {
         $usuario = auth()->user();        

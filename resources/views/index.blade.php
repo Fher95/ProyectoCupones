@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-</br></br></br>
+
     
     @include('navbar')
     <div class="container-fluid">
@@ -29,12 +29,10 @@
   <div class="card-body">
      <p class="card-text">Precio: ${{$item->precioCupon}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDescuento: {{$item->descuentoCupon}}%</p>
      <h4 class="card-text">Precio Final: ${{($item->precioCupon) * (1 - (($item->descuentoCupon)/100))}}</h4>
-     <form action="{{ route('visCupon', ['idCupon' => $item->idCupon] )}}">
-    <button type="button" class="btn btn-dark">Comprar</button>
-    </form>
+     <a href="{{ route('visCupon', ['idCupon' => $item->idCupon] )}}" class="btn btn-dark">Comprar</a>        
   </div>
 </div>
-</br>
+
  </div>
  
   @endforeach()

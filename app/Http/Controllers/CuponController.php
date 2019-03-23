@@ -78,6 +78,12 @@ class CuponController extends Controller
         return view('index',['cupones'=>$cupones]);
     }
 
+    public function showOne($idCupon)
+    {
+        $cupon = Cupon::find($idCupon);
+        return view('vistaCupon',['cupon'=>$cupon]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
