@@ -29,8 +29,9 @@
   <div class="card-body">
      <p class="card-text">Precio: ${{$item->precioCupon}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDescuento: {{$item->descuentoCupon}}%</p>
      <h4 class="card-text">Precio Final: ${{($item->precioCupon) * (1 - (($item->descuentoCupon)/100))}}</h4>
+     <form action="{{ route('visCupon', ['idCupon' => $item->idCupon] )}}">
     <button type="button" class="btn btn-dark">Comprar</button>
-    
+    </form>
   </div>
 </div>
 </br>

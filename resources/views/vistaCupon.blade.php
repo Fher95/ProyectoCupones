@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    @include('navbar')
+    <p>.</p>
+    <p>.</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header"><strong>COMPRA DE CUPON</strong></div>
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+    
+                        <div class="card  border-dark mb-12" >
+                            
+                        <img class="imgCard" src="{{$cupon->URLImagenCupon}}" alt="Card image cap">
+                        
+                    <ul class="list-group   list-group-flush">
+                        <li class="list-group-item">{{$cupon->nombreCupon}}</li>
+                    
+                    <div class="card-body">
+                        <p class="card-text">Precio: ${{$cupon->precioCupon}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDescuento: {{$cupon->descuentoCupon}}%</p>
+                        <h4 class="card-text">Precio Final: ${{($cupon->precioCupon) * (1 - (($cupon->descuentoCupon)/100))}}</h4>
+                        
+                            <button type="submit" class="btn btn-dark">Comprar</button>
+                        
+                    </div>
+                    </div>
+                   
+                    </div>
+                        
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

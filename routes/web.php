@@ -30,3 +30,10 @@ Route::get('/cuponRedimido/{fechaCompra}/{idCupon}/{cantidad}',[
     'as' => 'cuponRedimido',
     'uses' => 'comprasController@generarPagina',
 ]);
+Route::get('/comprarCupones', 'comprasController@store')->name('comprarCupon');
+
+Route::get('/visCupon', function ($idCupon) {    
+    $cupon = Cupon::find($idCupon);
+    return view('vistaCupon',['cupon'=>$cupon]);
+})->name('visCupon');
+

@@ -49,6 +49,10 @@ class CuponController extends Controller
         
         $request->validate([
             'URLImagenCupon' => 'required|image',
+            'nombreCupon' => 'required',
+            'precioCupon' => 'required',
+            'descuentoCupon' => 'required',
+            'totalAutorizados' => 'required'
         ]);
         $file = $request->file('URLImagenCupon');
         $name = 'img/product-img/' . $usuario->id . time() . $file->getClientOriginalName();
