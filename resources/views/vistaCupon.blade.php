@@ -35,14 +35,15 @@
                         <p class="card-text">Precio: ${{$cupon->precioCupon}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDescuento: {{$cupon->descuentoCupon}}%</p>
                         <h4 class="card-text">Precio Final: ${{($cupon->precioCupon) * (1 - (($cupon->descuentoCupon)/100))}}</h4>
                         <h4 class="card-text">Disponibles: {{($cupon->totalAutorizados)}}</h4>
-                        <select class="form-control" id="cantidadCompra" name="cantidadCompra">                        
-                        @for($i=1 ; $i<=$cupon->totalAutorizados; $i++)
-                            <option value='{{ $i }}'>{{ $i }}</option>
-                        @endfor;                        
-                        
-                        </select>
-                        <a href="{{ route('comprarCupones', ['idCupon' => $cupon->idCupon, 'cantidadCompra' => 1 ] )}}"  class = "btn btn-danger btn-xs btn-block">Comprar</a>
-                        
+                        <form action="/comprarCupones/{{$cupon->idCupon}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <select class="form-control" id="cantidadCompra" name="cantidadCompra">                        
+                                @for($i=1 ; $i<=$cupon->totalAutorizados; $i++)
+                                    <option value='{{ $i }}'>{{ $i }}</option>
+                                @endfor;
+                            </select> 
+                            <button type="submit" class="btn btn-primary" style="max-width: 380; max-height: 40;">Comprar</button>
+                        </form>
                     </div>
                     
                    

@@ -31,10 +31,12 @@ Route::get('/cuponRedimido/{fechaCompra}/{idCupon}/{cantidad}',[
     'as' => 'cuponRedimido',
     'uses' => 'comprasController@generarPagina',
 ]);
-Route::get('/comprarCupones/{idCupon}/{cantidadCompra}', [
-    'as' => 'comprarCupones',
-    'uses' => 'comprasController@guardarCompra',
-]);
+Route::post('/comprarCupones/{idCupon}', 'cuponController@guardarCompra')->name('storeCompra');
+
+//Route::get('/comprarCupones/{idCupon}/{cantidadCompra}', [
+//    'as' => 'comprarCupones',
+//    'uses' => 'comprasController@guardarCompra',
+//]);
 Route::get('/visCupon/{idCupon}', [
     'as' => 'visCupon',
     'uses' => 'CuponController@showOne',

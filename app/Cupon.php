@@ -18,7 +18,7 @@ class Cupon extends Model
         return $this->belongsTo('App\Aliado');
     }
 
-    public function usuariosCompra()
+    /*public function usuariosCompra()
     {
         return $this->belongsToMany('App\Usuario', 'Compra', 'idUsuario','idCupon')->withPivot('fechaCompra', 'cantidad');
     }
@@ -26,5 +26,5 @@ class Cupon extends Model
     public function usuariosReserva()
     {
         return $this->belongsToMany('App\Usuario', 'Reserva', 'idUsuario','idCupon')->withPivot('fechaReserva', 'cantidad');
-    }
+    }*/
 }

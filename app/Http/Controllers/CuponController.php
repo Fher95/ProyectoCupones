@@ -84,6 +84,21 @@ class CuponController extends Controller
         return view('vistaCupon',['cupon'=>$cupon]);
     }
 
+    public function guardarCompra(Request $request, $idCupon)
+    {
+        $usuario = auth()->user();
+        $idUser = $usuario->id;
+        $now = new \DateTime();
+        $usuario->cuponesCompra()->attach($idCupon, ['fechaCompra' => $now, 'cantidad' => $request->cantidadCompra]);        
+        
+        $cupon = Cupon::find($idCupon);
+        $numActual = $cupon->totalAutorizados;
+        $cupon->totalAutorizados = $numActual - $request->cantidadCompra;
+        $cupon->save();        
+
+        return redirect('/home')->with('status', '¡Compra Realizada!');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
