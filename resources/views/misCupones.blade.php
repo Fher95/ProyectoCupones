@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Mis cupones comprados</title>
 </head>
 <body>
 
  @extends('layouts.app')
     
-
+<br><br><br>
     <div class="card-columns">
 
         @foreach($compras as $compra)
@@ -20,9 +20,9 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $compra->nombreCupon }}</h5>
                     <div class="card-text">
-                        <p>Cupones disponibles: {{ $compra->cantidad }}</p>
-                        <p>Precio: {{ $compra->preciocupon }}</p>
-                        <p>Descuento: {{ $compra->descuentocupon }}</p>
+                        <p>Número de cupones comprados: {{ $compra->cantidad }}</p>
+                        <p>Valor de la compra: ${{ ($compra->preciocupon)*(1-(($compra->descuentocupon)/100)) }}</p>
+                        <p>Descuento que otorgo: {{ $compra->descuentocupon }}</p>
                     </div>
                 </div>
                 <div class="card-footer">

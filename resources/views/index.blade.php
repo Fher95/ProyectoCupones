@@ -12,6 +12,7 @@
 
     
     @include('navbar')
+    <br><br><br>
     <div class="container-fluid">
     <div class="row">
         @foreach($cupones as $item)
