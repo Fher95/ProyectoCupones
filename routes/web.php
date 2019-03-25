@@ -13,7 +13,7 @@ use App\Cupon;
 |
 */
 Route::get('/', function () {
-    $cupones = Cupon::all();
+    $cupones = Cupon::where('totalAutorizados','>','0')->get();
     return view('index',['cupones'=>$cupones]);
 });
 
@@ -24,19 +24,13 @@ Route::get('/home', 'HomeController@home')->name('home');
 
 Route::get('/tienda', 'HomeController@tienda')->name('tienda');
 Route::get('/crearCupon', 'CuponController@create')->name('crearCupon');
-Route::get('/misCupones', 'comprasController@index')->name('cupones');
+Route::get('/misCupones', 'CompraController@show')->name('showMisCupones');
 Route::post('/guardarCupon', 'CuponController@store')->name('storeCupon');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::get('/cuponRedimido/{fechaCompra}/{idCupon}/{cantidad}',[
-    'as' => 'cuponRedimido',
-    'uses' => 'comprasController@generarPagina',
-]);
-Route::post('/comprarCupones/{idCupon}', 'cuponController@guardarCompra')->name('storeCompra');
 
-//Route::get('/comprarCupones/{idCupon}/{cantidadCompra}', [
-//    'as' => 'comprarCupones',
-//    'uses' => 'comprasController@guardarCompra',
-//]);
+Route::get('/redimirCupon/{idCupon}/{fechaCompra}', 'RedimidoController@store')->name('storeRedimido');
+Route::post('/comprarCupones/{idCupon}', 'CompraController@store')->name('storeCompra');
+
 Route::get('/visCupon/{idCupon}', [
     'as' => 'visCupon',
     'uses' => 'CuponController@showOne',

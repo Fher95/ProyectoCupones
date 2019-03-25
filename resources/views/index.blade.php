@@ -13,32 +13,26 @@
     
     @include('navbar')
     <div class="container-fluid">
-   <div class="row">
-    
+    <div class="row">
         @foreach($cupones as $item)
-       
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    
-    <div class="card  border-dark mb-12" >
-        
-    <img class="imgCard" src="{{$item->URLImagenCupon}}" alt="Card image cap">
-    
-  <ul class="list-group   list-group-flush">
-    <li class="list-group-item">{{$item->nombreCupon}}</li>
-   
-  <div class="card-body">
-     <p class="card-text">Precio: ${{$item->precioCupon}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDescuento: {{$item->descuentoCupon}}%</p>
-     <h4 class="card-text">Precio Final: ${{($item->precioCupon) * (1 - (($item->descuentoCupon)/100))}}</h4>
-     <a href="{{ route('visCupon', ['idCupon' => $item->idCupon] )}}" class="btn btn-dark">Comprar</a>        
-  </div>
-</div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card  border-dark mb-12" >
+              <img class="imgCard" src="{{$item->URLImagenCupon}}" alt="Card image cap">
+            
+              <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{$item->nombreCupon}}</li>
+              <div class="card-body">
+                <p class="card-text">Precio: ${{$item->precioCupon}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDescuento: {{$item->descuentoCupon}}%</p>
+                <h4 class="card-text">Precio Final: ${{($item->precioCupon) * (1 - (($item->descuentoCupon)/100))}}</h4>
+                <a href="{{ route('visCupon', ['idCupon' => $item->idCupon] )}}" class="btn btn-dark">Comprar</a>        
+              </div>
+            </div>
 
- </div>
+          </div>
  
-  @endforeach()
- </div>
-
-</div>
+        @endforeach()
+    </div>
+    </div>
        
 
          <!--   @foreach($cupones as $item)

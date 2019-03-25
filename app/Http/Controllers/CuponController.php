@@ -74,7 +74,7 @@ class CuponController extends Controller
      */
     public function show(Cupon $cupon)
     {
-        $cupones = Cupon::all();
+        $cupones = Cupon::where('totalAutorizados','>','0')->get();
         return view('index',['cupones'=>$cupones]);
     }
 
@@ -82,21 +82,6 @@ class CuponController extends Controller
     {
         $cupon = Cupon::find($idCupon);
         return view('vistaCupon',['cupon'=>$cupon]);
-    }
-
-    public function guardarCompra(Request $request, $idCupon)
-    {
-        $usuario = auth()->user();
-        $idUser = $usuario->id;
-        $now = new \DateTime();
-        $usuario->cuponesCompra()->attach($idCupon, ['fechaCompra' => $now, 'cantidad' => $request->cantidadCompra]);        
-        
-        $cupon = Cupon::find($idCupon);
-        $numActual = $cupon->totalAutorizados;
-        $cupon->totalAutorizados = $numActual - $request->cantidadCompra;
-        $cupon->save();        
-
-        return redirect('/home')->with('status', '¡Compra Realizada!');
     }
 
     /**

@@ -16,7 +16,7 @@
         @foreach($compras as $compra)
             
             <div class="card">
-                <img src="{{ $compra->urlimagencupon }}" class="card-img-top" alt="">
+                <img src="../{{(\App\Cupon::find($compra->idCupon))->URLImagenCupon}}" class="card-img-top" alt="">
                 <div class="card-body">
                     <h5 class="card-title">{{ $compra->nombreCupon }}</h5>
                     <div class="card-text">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <form action="{{ route('cuponRedimido', ['fechaCompra' => $compra->fechaCompra, 'idCupon' => $compra->idCupon, 'cantidad' => $compra->cantidad ] )}}">
+                    <form action="{{ route('storeRedimido', ['fechaCompra' => $compra->fechaCompra, 'idCupon' => $compra->idCupon] )}}">
                         <button class="btn btn-danger">Redimir</button>
                     </form>
                 </div>

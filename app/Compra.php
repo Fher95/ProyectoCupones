@@ -2,24 +2,13 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Compra extends Model
+class Compra extends Pivot
 {
     protected $table = "compras";
 
     protected $fillable = ['idUsuario', 'idCupon', 'fechaCompra', 'cantidad'];
-    
-    public $timestamps = false;
-    
-    public function usuario()
-    {
-        return $this->belongsTo('App\Usuario');
-    }
-    
-    public function cupon()
-    {
-        return $this->belongsTo('App\Cupon');
-    }
 
+    public $timestamps = false;
 }

@@ -30,12 +30,12 @@ class Usuario extends Model implements
 
     public function cuponesCompra()
     {
-        return $this->belongsToMany('App\Usuario', 'Compras', 'idUsuario','idCupon')->withPivot('fechaCompra', 'cantidad');
+        return $this->belongsToMany('App\Usuario', 'Compras', 'idUsuario','idCupon')->using('App\Compra');
     }
 
     public function cuponesReserva()
     {
-        return $this->belongsToMany('App\Usuario', 'Reservas', 'idUsuario','idCupon')->withPivot('fechaReserva', 'cantidad');
+        return $this->belongsToMany('App\Usuario', 'Reservas', 'idUsuario','idCupon')->using('App\Redimido');
     }
 
     /**

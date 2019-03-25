@@ -30,7 +30,7 @@
                         </div>
                         <div class = "panel-footer">
                         
-                            <form action="{{route('cupones')}}">
+                            <form action="{{route('showMisCupones')}}">
                                 <button class = "btn btn-danger btn-xs btn-block">Ir a Mis Cupones</button>
                             </form>
                             <p> </p>
