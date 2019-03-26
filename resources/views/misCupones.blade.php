@@ -18,11 +18,11 @@
             <div class="card">
                 <img src="../{{(\App\Cupon::find($compra->idCupon))->URLImagenCupon}}" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $compra->nombreCupon }}</h5>
+                    <h5 class="card-title">{{ (\App\Cupon::find($compra->idCupon))->nombreCupon }}</h5>
                     <div class="card-text">
                         <p>Número de cupones comprados: {{ $compra->cantidad }}</p>
-                        <p>Valor de la compra: ${{ ($compra->preciocupon)*(1-(($compra->descuentocupon)/100)) }}</p>
-                        <p>Descuento que otorgo: {{ $compra->descuentocupon }}</p>
+                        <p>Valor de la compra: ${{ ((\App\Cupon::find($compra->idCupon))->precioCupon)*(1-(((\App\Cupon::find($compra->idCupon))->descuentoCupon)/100)) }}</p>
+                        <p>Descuento que otorgo: {{ (\App\Cupon::find($compra->idCupon))->descuentoCupon }}</p>
                     </div>
                 </div>
                 <div class="card-footer">
