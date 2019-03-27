@@ -1,0 +1,6 @@
+INSERT INTO `aliados` (`idAliado`, `nombreAliado`, `telefonoAliado`, `direccionAliado`, `idUsuario`) VALUES ('1', 'Nike', '123', '123', '1');
+INSERT INTO `aliados` (`idAliado`, `nombreAliado`, `telefonoAliado`, `direccionAliado`, `idUsuario`) VALUES ('2', 'Adidas', '123', '123', '1');
+INSERT INTO `aliados` (`idAliado`, `nombreAliado`, `telefonoAliado`, `direccionAliado`, `idUsuario`) VALUES ('3', 'Jordan', '123', '123', '1');
+INSERT INTO `aliados` (`idAliado`, `nombreAliado`, `telefonoAliado`, `direccionAliado`, `idUsuario`) VALUES ('4', 'Republic of gamers', '123', '123', '1');
+INSERT INTO `aliados` (`idAliado`, `nombreAliado`, `telefonoAliado`, `direccionAliado`, `idUsuario`) VALUES ('5', 'Steam', '123', '123', '1');
+INSERT INTO `aliados` (`idAliado`, `nombreAliado`, `telefonoAliado`, `direccionAliado`, `idUsuario`) VALUES ('6', 'Oxxo', '123', '123', '1');

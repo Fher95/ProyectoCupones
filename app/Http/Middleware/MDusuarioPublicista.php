@@ -16,9 +16,12 @@ class MDusuarioPublicista
     public function handle($request, Closure $next)
     {
         $usuario_actual=\Auth::user();
-        if($usuario_actual->rolPublicista!=1 && $usuario_actual->rolAdministrador!=1){
-            dd('No te pases de listo. Area restringida');
+        if($usuario_actual->rolPublicista == 1){
+            return $next($request);
         }
-        return $next($request);
+        else if($usuario_actual->rolAdministrador == 1){
+            return $next($request);
+        }
+        abort(403, 'Por poco hackeas nuestros servidores, no te pases de listo, sabemos tu IP.');
     }
 }

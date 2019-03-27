@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/redimirCupon/{idCupon}/{fechaCompra}', 'RedimidoController@store')->name('storeRedimido');
 });
 
-Route::group(['middleware' => ['usuarioAdmin','usuarioPublicista']], function(){
+Route::group(['middleware' => 'usuarioPublicista'], function(){
     Route::get('/crearCupon', 'CuponController@create')->name('crearCupon');
     Route::post('/guardarCupon', 'CuponController@store')->name('storeCupon');
 });
@@ -47,3 +47,4 @@ Route::group(['middleware' => 'usuarioAdmin'], function(){
     Route::get('/crearAliado', 'AliadoController@create')->name('crearAliado');
     Route::post('/guardarAliado', 'AliadoController@store')->name('storeAliado');
 });
+

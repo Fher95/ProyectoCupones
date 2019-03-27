@@ -9,44 +9,27 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  
-  @include('navbar')
-<h3 align="center">Spartan Cupón</h3>
- 
-  <br>
-  
-    <div class="container-fluid">
-   <div class="row">
-    
-        @foreach($cupones as $item)
-       
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    
-    <div class="card  border-dark mb-12" >
-        
-    <img class="imgCard" src="{{$item->URLImagenCupon}}" alt="Card image cap">
-    
-  <ul class="list-group   list-group-flush">
-    <li class="list-group-item">{{$item->nombreCupon}}</li>
-   
-  <div class="card-body">
-     <p class="card-text">Precio: ${{$item->precioCupon}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDescuento: {{$item->descuentoCupon}}%</p>
-     <h4 class="card-text">Precio Final: ${{($item->precioCupon) * (1 - (($item->descuentoCupon)/100))}}</h4>
-     <a href="{{ route('visCupon', ['idCupon' => $item->idCupon] )}}" class="btn btn-dark">Comprar</a>
-    
-  </div>
-</div>
-</br>
- </div>
- 
-  @endforeach()
- </div>
-
-</div>
-
-
-
+      @include('navbar')
+      <h3 align="center">Spartan Cupón</h3>
+      <br>
+      <div class="container-fluid">
+        <div class="row">
+          @foreach($cupones as $item)
+            <div class="col-sm-6 col-md-4 col-lg-3">
+              <div class="card  border-dark mb-12" >
+                <img class="imgCard" src="{{$item->URLImagenCupon}}" alt="Card image cap">        
+                <ul class="list-group   list-group-flush">
+                  <li class="list-group-item">{{$item->nombreCupon}}</li>      
+                <div class="card-body">
+                  <p class="card-text">Precio: ${{$item->precioCupon}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDescuento: {{$item->descuentoCupon}}%</p>
+                  <h4 class="card-text">Precio Final: ${{($item->precioCupon) * (1 - (($item->descuentoCupon)/100))}}</h4>
+                  <a href="{{ route('visCupon', ['idCupon' => $item->idCupon] )}}" class="btn btn-danger">Comprar</a>
+                </div>
+              </div>
+            </div>
+        @endforeach()
+        </div>
+      </div>
 
           <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
           <script src="js/jquery/jquery-2.2.4.min.js"></script>

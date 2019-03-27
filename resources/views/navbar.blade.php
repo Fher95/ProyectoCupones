@@ -11,7 +11,7 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
   
- <a class="navbar-brand" href="{{ url('/') }}">
+<a class="navbar-brand" href="{{ url('/') }}">
   <img src="img/core-img/logo.png" width="50" height="50" alt="">
 </a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
