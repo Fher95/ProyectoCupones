@@ -15,7 +15,7 @@ class AliadoController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -23,9 +23,9 @@ class AliadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //return view('')
+        return view('crearAliado');
     }
 
     /**
@@ -36,14 +36,15 @@ class AliadoController extends Controller
      */
     public function store(Request $request)
     {
+        $usuario = auth()->user();
         $aliado = new Aliado();
         $aliado->nombreAliado = $request->input('nombreAliado');
         $aliado->telefonoAliado = $request->input('telefonoAliado');
         $aliado->direccionAliado = $request->input('direccionAliado');
-        $aliado->idUsuario = $request->input('idUsuario');
+        $aliado->idUsuario = $usuario->id;
         $aliado->save();
 
-        return 'Saved';
+        return redirect('/crearAliado')->with('status', 'Aliado Agregado!');;
     }
 
     /**

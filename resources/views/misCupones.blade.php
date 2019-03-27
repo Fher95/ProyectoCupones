@@ -9,31 +9,31 @@
 <body>
 
  @extends('layouts.app')
-    
-<br><br><br>
-    <div class="card-columns">
+ <br><br><br>
+ <h3 align="center">Mis cupones</h3>
+ <div class="card-columns">
 
-        @foreach($compras as $compra)
-            
-            <div class="card">
-                <img src="../{{(\App\Cupon::find($compra->idCupon))->URLImagenCupon}}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">{{ (\App\Cupon::find($compra->idCupon))->nombreCupon }}</h5>
-                    <div class="card-text">
-                        <p>Número de cupones comprados: {{ $compra->cantidad }}</p>
-                        <p>Valor de la compra: ${{ ((\App\Cupon::find($compra->idCupon))->precioCupon)*(1-(((\App\Cupon::find($compra->idCupon))->descuentoCupon)/100)) }}</p>
-                        <p>Descuento que otorgo: {{ (\App\Cupon::find($compra->idCupon))->descuentoCupon }}</p>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <form action="{{ route('storeRedimido', ['fechaCompra' => $compra->fechaCompra, 'idCupon' => $compra->idCupon] )}}">
-                        <button class="btn btn-danger">Redimir</button>
-                    </form>
-                </div>
+    @foreach($compras as $compra)
+
+    <div class="card">
+        <img src="../{{(\App\Cupon::find($compra->idCupon))->URLImagenCupon}}" class="card-img-top" alt="">
+        <div class="card-body">
+            <h5 class="card-title">{{ (\App\Cupon::find($compra->idCupon))->nombreCupon }}</h5>
+            <div class="card-text">
+                <p>Número de cupones comprados: {{ $compra->cantidad }}</p>
+                <p>Valor de la compra: ${{ ((\App\Cupon::find($compra->idCupon))->precioCupon)*(1-(((\App\Cupon::find($compra->idCupon))->descuentoCupon)/100)) }}</p>
+                <p>Descuento que otorgo: {{ (\App\Cupon::find($compra->idCupon))->descuentoCupon}}%</p>
             </div>
-            
-        @endforeach
+        </div>
+        <div class="card-footer">
+            <form action="{{ route('storeRedimido', ['fechaCompra' => $compra->fechaCompra, 'idCupon' => $compra->idCupon] )}}">
+                <button class="btn btn-danger">Redimir</button>
+            </form>
+        </div>
     </div>
+
+    @endforeach
+</div>
 
 
 </body>

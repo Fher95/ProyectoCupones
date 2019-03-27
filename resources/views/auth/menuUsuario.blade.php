@@ -9,8 +9,9 @@
           <a class="dropdown-item" href="{{route('showMisCupones')}}">Mis Cupones</a>
           @if(auth()->user()->rolAdministrador==1)
                 <a class="dropdown-item" href="{{route('crearCupon')}}">Crear Cupon</a>
-                <a class="dropdown-item" href="#">Crear Aliado</a>
-            @elseif(auth()->user()->rolPublicista==1)
+                <a class="dropdown-item" href="{{route('crearAliado')}}">Crear Aliado</a>
+            @endif
+            @if(auth()->user()->rolPublicista==1)
                 <a class="dropdown-item" href="{{route('crearCupon')}}">Crear Cupon</a>
             @endif
             
@@ -20,9 +21,6 @@
                     </a>
         </div>
       </li>
-    <li class="nav-item ">
-        <a href="cart.html" class="cart-nav"><img src="img/core-img/cart2.png" alt=""><a class="text-white">(0)</a></a>
-    </li>
     
 @else
     <li class="nav-item active">
@@ -30,8 +28,6 @@
     </li>
     <li class="nav-item active">
         <a class="nav-link   " href="{{route('register')}}">Registrarse</a>
-    </li>
-    <li class="nav-item ">
-        <a href="cart.html" class="cart-nav"><img src="img/core-img/cart2.png" alt=""><a class="text-white">(0)</a></a>
-    </li>  
+    </li> 
 @endif
+

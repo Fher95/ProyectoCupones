@@ -24,6 +24,8 @@ Route::get('/home', 'HomeController@home')->name('home');
 
 Route::get('/tienda', 'HomeController@tienda')->name('tienda');
 Route::get('/crearCupon', 'CuponController@create')->name('crearCupon');
+Route::get('/crearAliado', 'AliadoController@create')->name('crearAliado');
+Route::post('/guardarAliado', 'AliadoController@store')->name('storeAliado');
 Route::get('/misCupones', 'CompraController@show')->name('showMisCupones');
 Route::post('/guardarCupon', 'CuponController@store')->name('storeCupon');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
