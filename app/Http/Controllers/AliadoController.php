@@ -44,7 +44,7 @@ class AliadoController extends Controller
         $aliado->idUsuario = $usuario->id;
         $aliado->save();
 
-        return redirect('/crearAliado')->with('status', 'Aliado Agregado!');;
+        return redirect('/home')->with('status', 'Aliado Creado!');
     }
 
     /**

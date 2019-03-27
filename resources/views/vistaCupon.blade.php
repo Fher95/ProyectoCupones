@@ -1,30 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Comprar cupón</title>
-</head>
-<body>
-    @extends('layouts.app')
-    <p>.</p>
-    <p>.</p>
+
+@extends('layouts.app')
+
+  @include('navbar')
+
+   
     @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
+
+    
+
     <div class="container-fluid" align="center">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header"><strong>COMPRA DE CUPON</strong></div>
                     <div class="card-body">
                         <h2 class="card-text">{{$cupon->nombreCupon}}</h2>
                        
                     <div style=”padding: 10px; float: left; width: 45%; text-align: justify;”>
-                        <img class="imgCard" src="../{{$cupon->URLImagenCupon}}" alt="Card image cap">
+                        <img class="imgCard" src="../{{$cupon->URLImagenCupon}}" alt="Card image cap" width="350px" height="350px">
                     </div>
                     
                     <div style=”padding: 10px; float: right; width: 45%; text-align: justify;”>
@@ -41,7 +38,7 @@
                                 @endfor;
                             </select> 
                             <br>
-                            <button type="submit" class="btn btn-primary" style="max-width: 380; max-height: 40;">Comprar</button>
+                            <button type="submit" class="btn btn-dark" style="max-width: 380; max-height: 40;">Comprar</button>
                         </form>
                     </div>
                     
@@ -54,5 +51,15 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+
+        <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
+          <script src="js/jquery/jquery-2.2.4.min.js"></script>
+          <!-- Popper js -->
+          <script src="js/popper.min.js"></script>
+          <!-- Bootstrap js -->
+          <script src="js/bootstrap.min.js"></script>
+          <!-- Plugins js -->
+          <script src="js/plugins.js"></script>
+          <!-- Active js -->
+          <script src="js/active.js"></script>
+

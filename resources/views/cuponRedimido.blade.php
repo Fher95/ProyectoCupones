@@ -8,8 +8,7 @@
 </head>
 <body>
     @extends('layouts.app')
-    <p>.</p>
-    <p>.</p>
+    
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -31,7 +30,7 @@
                         </div>
                         <div class = "panel-footer">
                             <form action="{{route('index')}}">
-                                <button class = "btn btn-danger btn-xs btn-block">Volver a comprar</button>
+                                <button class = "btn btn-dark btn-xs btn-block">Volver a comprar</button>
                             </form>
                         </div>
                     </div>
