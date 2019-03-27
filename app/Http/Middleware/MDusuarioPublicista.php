@@ -15,9 +15,9 @@ class MDusuarioPublicista
      */
     public function handle($request, Closure $next)
     {
-        $usuario_actual=\Auth::usuario();
-        if($usuario_actual->rolPublicista!=1){
-            return view("mensajes.msj_rechazado")->with("msj","No tiene permisos de publicista");
+        $usuario_actual=\Auth::user();
+        if($usuario_actual->rolPublicista!=1 && $usuario_actual->rolAdministrador!=1){
+            dd('No te pases de listo. Area restringida');
         }
         return $next($request);
     }

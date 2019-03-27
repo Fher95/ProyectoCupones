@@ -49,10 +49,6 @@ class CuponController extends Controller
         
         $request->validate([
             'URLImagenCupon' => 'required|image',
-            'nombreCupon' => 'required',
-            'precioCupon' => 'required',
-            'descuentoCupon' => 'required',
-            'totalAutorizados' => 'required'
         ]);
         $file = $request->file('URLImagenCupon');
         $name = 'img/product-img/' . $usuario->id . time() . $file->getClientOriginalName();
@@ -74,14 +70,8 @@ class CuponController extends Controller
      */
     public function show(Cupon $cupon)
     {
-        $cupones = Cupon::where('totalAutorizados','>','0')->get();
+        $cupones = Cupon::all();
         return view('index',['cupones'=>$cupones]);
-    }
-
-    public function showOne($idCupon)
-    {
-        $cupon = Cupon::find($idCupon);
-        return view('vistaCupon',['cupon'=>$cupon]);
     }
 
     /**
