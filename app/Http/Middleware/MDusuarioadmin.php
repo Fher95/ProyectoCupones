@@ -15,9 +15,9 @@ class MDusuarioadmin
      */
     public function handle($request, Closure $next)
     {
-        $usuario_actual=\Auth::usuario();
+        $usuario_actual=\Auth::user();
         if($usuario_actual->rolAdministrador!=1){
-            return view("mensajes.msj_rechazado")->with("msj","No tiene permisos");
+            abort(403, 'No te pases de listo.');
         }
         return $next($request);
     }
